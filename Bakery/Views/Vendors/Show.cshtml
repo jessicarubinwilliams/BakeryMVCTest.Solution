@@ -3,7 +3,8 @@
 }
 @using Bakery.Models;
 
-<h3>Here are all the order for this vendor:</h3>
+<h3>Vendor: @Model["vendor"].Name</h3>
+<h3>Vendor Description: @Model["vendor"].Description</h3>
 
 <ol>
 @foreach (Order order in @Model["orders"])
