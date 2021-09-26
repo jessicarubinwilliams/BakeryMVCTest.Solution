@@ -81,8 +81,12 @@ namespace Bakery.Tests
     [TestMethod]
     public void AddOrder_AssociatesOrderWithVendor_OrderList()
     {
-      string orderDescription = "6 challahs";
-      Order newOrder = new Order(orderDescription);
+      string title = "Weekly Thursday Order";
+      string description = "6 Challahs";
+      int price = 24;
+      string datePlaced = "Friday, September 24, 2021";
+      string deliveryDate = "Thursday, September 30, 2021";
+      Order newOrder = new Order(title, description, price, datePlaced, deliveryDate);
       List<Order> newList = new List<Order> { newOrder };
       string name = "New Seasons";
       string vendorDescription = "Local grocery store chain";
