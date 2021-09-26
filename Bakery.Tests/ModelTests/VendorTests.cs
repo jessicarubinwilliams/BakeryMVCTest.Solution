@@ -1,77 +1,77 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System;
-using ToDoList.Models;
+using Bakery.Models;
 
-namespace ToDoList.Tests
+namespace Bakery.Tests
 {
   [TestClass]
-  public class CategoryTests : IDisposable
+  public class VendorTests : IDisposable
   {
 
     public void Dispose()
     {
-      Category.ClearAll();
+      Vendor.ClearAll();
     }
 
     [TestMethod]
-    public void CategoryConstructor_CreatesInstanceOfCategory_Category()
+    public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
     {
-      Category newCategory = new Category("test category");
-      Assert.AreEqual(typeof(Category), newCategory.GetType());
+      Vendor newVendor = new Vendor("Test vendor");
+      Assert.AreEqual(typeof(Vendor), newVendor.GetType());
     }
 
     [TestMethod]
     public void GetName_ReturnsName_String()
     {
-      string name = "Test Category";
-      Category newCategory = new Category(name);
-      string result = newCategory.Name;
+      string name = "Test Vendor";
+      Vendor newVendor = new Vendor(name);
+      string result = newVendor.Name;
       Assert.AreEqual(name, result);
     }
 
     [TestMethod]
-    public void GetId_ReturnsCategoryId_Int()
+    public void GetId_ReturnsVendorId_Int()
     {
-      string name = "Test Category";
-      Category newCategory = new Category(name);
-      int result = newCategory.Id;
+      string name = "Test Vendor";
+      Vendor newVendor = new Vendor(name);
+      int result = newVendor.Id;
       Assert.AreEqual(1, result);
     }
 
     [TestMethod]
-    public void GetAll_ReturnsAllCategoryObjects_CategoryList()
+    public void GetAll_ReturnsAllVendorObjects_VendorList()
     {
-      string name01 = "Work";
-      string name02 = "School";
-      Category newCategory1 = new Category(name01);
-      Category newCategory2 = new Category(name02);
-      List<Category> newList = new List<Category> { newCategory1, newCategory2 };
-      List<Category> result = Category.GetAll();
+      string name01 = "New Seasons";
+      string name02 = "Stumptown";
+      Vendor newVendor1 = new Vendor(name01);
+      Vendor newVendor2 = new Vendor(name02);
+      List<Vendor> newList = new List<Vendor> { newVendor1, newVendor2 };
+      List<Vendor> result = Vendor.GetAll();
       CollectionAssert.AreEqual(newList, result);
     }
 
     [TestMethod]
-    public void Find_ReturnsCorrectCategory_Category()
+    public void Find_ReturnsCorrectVendor_Vendor()
     {
-      string name01 = "Work";
-      string name02 = "School";
-      Category newCategory1 = new Category(name01);
-      Category newCategory2 = new Category(name02);
-      Category result = Category.Find(2);
-      Assert.AreEqual(newCategory2, result);
+      string name01 = "New Seasons";
+      string name02 = "Stumptown";
+      Vendor newVendor1 = new Vendor(name01);
+      Vendor newVendor2 = new Vendor(name02);
+      Vendor result = Vendor.Find(2);
+      Assert.AreEqual(newVendor2, result);
     }
 
     [TestMethod]
-    public void AddItem_AssociatesItemWithCategory_ItemList()
+    public void AddOrder_AssociatesOrderWithVendor_OrderList()
     {
-      string description = "Walk the dog.";
-      Item newItem = new Item(description);
-      List<Item> newList = new List<Item> { newItem };
-      string name = "Work";
-      Category newCategory = new Category(name);
-      newCategory.AddItem(newItem);
-      List<Item> result = newCategory.Items;
+      string description = "6 challahs";
+      Order newOrder = new Order(description);
+      List<Order> newList = new List<Order> { newOrder };
+      string name = "New Seasons";
+      Vendor newVendor = new Vendor(name);
+      newVendor.AddOrder(newOrder);
+      List<Order> result = newVendor.Orders;
       CollectionAssert.AreEqual(newList, result);
     }
   }
