@@ -41,7 +41,7 @@ This web-based application is a customer and order tracking system for a fiction
 
 ## Known Bugs <a id="bugs"></a>
 
-* This project is a work in progress and not yet complete.
+* No known bugs.
 
 ## License <a id="license"></a>
 *[MIT](https://choosealicense.com/licenses/mit/)*
